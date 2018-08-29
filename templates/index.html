@@ -1,0 +1,24 @@
+{% extends 'layout.html' %} {% block body %}
+<div class="row col-md-offset-3">
+  <div style="width:70%;">
+    <form action="/search" method="POST" >
+      <div class="input-group">
+        {% from "_formhelpers.html" import render_field2 %}
+        {{ render_field2(form.embedcode, class_='form-control', placeholder="Embed code here")  }}
+        <div class="input-group-btn">
+          {% from "_formhelpers.html" import render_field2, render_field %}
+            {{ render_field2(form.search_embed , class="btn btn-default") }}
+           <i class="glyphicon glyphicon-search"></i></button>
+        </div>
+      </div>
+    </form>
+    {% if form.embedcode.errors %}
+      <ul class='alert alert-warning'>
+      {% for error in form.embedcode.errors %}
+        {{ error }}
+      {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
