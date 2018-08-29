@@ -1,82 +1,49 @@
-# importing all the modules
-
-
 
 from random import randint
+from googleads import ad_manager
 
-search_URL ='http://ts-tools.next-staging.ooyala.com/triage_api/v1/search?value='
-asset_URL ='http://ts-tools.next-staging.ooyala.com/triage_api/v1/'
-
-'''Returns the accunt information for the given seacrh values
-ProviderID, Email, APIKey, Pcode ---> Json obkject with account detials
-'''
-def getAccountInfo(input):
-        account_url = search_URL+input
-        response = urllib.urlopen(account_url)
-        account_data = json.loads(response.read())
-        return account_data
-
-
-''' Returns the asset detials for the given Embed Pcode
-Provider ID AND embedcode --> Json object with Asset get_asset_detials
-'''
-def getAssetData(input, id):
-        asset_url=asset_URL+id+'/assets/'+input+'/'
-        response_asset = urllib.urlopen(asset_url)
-        asset_data = json.loads(response_asset.read())
-        return asset_data
+version = 'v201802'
+def getLineItemResponse(lineitemID):
+    ad_manager_client = ad_manager.AdManagerClient.LoadFromStorage()
+    lineItem_service = ad_manager_client.GetService('LineItemService', version = version)
+    lineitem_statement = (ad_manager.StatementBuilder()
+            .Where('lineItemId = :lineItemId')
+            .WithBindVariable('lineItemId', lineitemID))
+    lineItem_response = lineItem_service.getLineItemsByStatement(lineitem_statement.ToStatement())
+    if 'results' in lineItem_response and len(lineItem_response['results']):
+        print "Line Item Details : " + str(lineItem_response)
+        return lineItem_response
+    else :
+        print "something went wrong"
+        return False
 
 
-''' input EmbedCode ==>  [is the ifnromation searchable?, accountInfo, AssetInfo]'''
+def getCreativeResponse(client, creativeID):
+    creative_service = client.GetService('CreativeService', version = version)
+    creative_statement = (ad_manager.StatementBuilder()
+               .Where('creativeType = :id')
+               .WithBindVariable('id', creativeID))
+    creative_response = creative_service.getLineItemsByStatement(creative_statement.ToStatement())
+    if 'results' in creative_response and len(creative_response['results']):
+        print "Creative details : " + str(creative_response)
+        return creative_response
+    else :
+        print "something went wrong"
+        return False
 
-def getData(embedcode):
-    accountInfo = getAccountInfo(embedcode)
-    if(accountInfo['Status']!=404):
-        assetInfo = getAssetData(embedcode,accountInfo['ProviderId'])
-        return [True, accountInfo, assetInfo]
-    else:
-        return [False, None, None]
-
-''' Checks if the search input is a valid or not
-If the input is related to the account or an embed code'''
-def validateData(input):
-        url = search_URL+input
-        response = urllib.urlopen(url)
-        response = json.loads(response.read())
-        if(response['Status']!=404 and response['Status']!=422 ):
-            return [True, response]
-        else:
-            return [False, response]
-
-'''Idenfies if the given input is not a valid embedcode
-then this will identify the input type '''
-def notAccountInfo(response, input):
-    checkList = ['ProviderId', 'Pcode','Name', 'Email', 'APIKey', 'APISecret']
-    for item in checkList:
-        if response[item] == input:
-            return item
-    return False
-
+def getLICAresponse(lineitemID):
+    lica_service = client.GetService('LineItemCreativeAssociationService', version = version)
+    lica_statement = (ad_manager.StatementBuilder()
+               .Where('lineItemId = :lineItemId')
+               .WithBindVariable('lineItemId', lineitemID))
+    lica_response = lica_service.getLineItemsByStatement(lica_statement.ToStatement())
+    if 'results' in lica_response and len(lica_response['results']):
+        print "  LICA details Details : " + str(lica_response)
+        return lica_response
+    else :
+        print "something went wrong"
+        return False
 
 ''' returns a random number between 10000 to 9999 '''
 def get_random_key():
-    return (randint(11111111,99911212))
-
-
-def check_status(data):
-    q =  pyqrcode.create(data)
-    q.svg('static/test.svg',module_color='black',scale=20,quiet_zone=4)
-    return True
-
-
-def encrypt_data(data):
-    result=''
-    #print data
-    get_random_key = randint(1,9)
-    for i in range(0, len(data) ):
-        result = result + chr(ord(data[i]) - get_random_key)
-    #result2 = ''
-    #for i in range(0, len(result)):
-    #    result2 = result2 + chr(ord(result[i]) + 2)
-    print result
-    return result + str(get_random_key)
+    return (randint(1000,9999))

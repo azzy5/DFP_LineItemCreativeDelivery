@@ -19,36 +19,26 @@
 # Import appropriate modules from the client library.
 from googleads import ad_manager
 version = 'v201802'
-line_item_id = '113197741'
+lineitemID = '114239941'
 creativeID = ''
 
 def main(client):
-  # Initialize appropriate services.
-    lica_service = client.GetService('LineItemCreativeAssociationService', version = version)
     lineItem_service = client.GetService('LineItemService', version = version)
-    creative_service = client.GetService('CreativeService', version = version)
-
-  # Create a statement to select creatives.
-    lica_statement = (ad_manager.StatementBuilder()
-               .Where('lineItemId = :lineItemId')
-               .WithBindVariable('lineItemId', line_item_id))
-
+    # Create a statement to select creatives.
     lineitem_statement = (ad_manager.StatementBuilder()
-               .Where('lineItemId = :lineItemId')
-               .WithBindVariable('lineItemId', line_item_id))
-
-    creative_statement = (ad_manager.StatementBuilder()
-               .Where('creativeType = :id')
-               .WithBindVariable('id', creativeID))
-
-
-    lica_response = lica_service.getLineItemCreativeAssociationsByStatement(lica_statement.ToStatement())
-    linetem_response = lineItem_service.getLineItemsByStatement(lineitem_statement.ToStatement())
-
-    if 'results' in lica_response and len(lica_response['results']):
-        print str(lica_response) + " \n\n\n\ Line Item Details" + str(linetem_response)
+             .Where('lineItemId = :lineItemId')
+             .WithBindVariable('lineItemId', lineitemID))
+     # lica_response = lica_service.getLineItemCreativeAssociationsByStatement(lica_statement.ToStatement())
+    lineItem_response = lineItem_service.getLineItemsByStatement(lineitem_statement.ToStatement())
+    if 'results' in lineItem_response and len(lineItem_response['results']):
+        print "Line Item Details : " + str(lineItem_response)
+        return lineItem_response
     else :
         print "something went wrong"
+        return False
+
+        # Create a statement to select creatives.
+
 if __name__ == '__main__':
   # Initialize client object.
   ad_manager_client = ad_manager.AdManagerClient.LoadFromStorage()

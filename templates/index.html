@@ -4,17 +4,17 @@
     <form action="/search" method="POST" >
       <div class="input-group">
         {% from "_formhelpers.html" import render_field2 %}
-        {{ render_field2(form.embedcode, class_='form-control', placeholder="Embed code here")  }}
+        {{ render_field2(form.lineItemId, class_='form-control', placeholder="Line Item ID goes here")  }}
         <div class="input-group-btn">
           {% from "_formhelpers.html" import render_field2, render_field %}
-            {{ render_field2(form.search_embed , class="btn btn-default") }}
+            {{ render_field2(form.search_lineItemID , class="btn btn-default") }}
            <i class="glyphicon glyphicon-search"></i></button>
         </div>
       </div>
     </form>
-    {% if form.embedcode.errors %}
+    {% if form.lineItemId.errors %}
       <ul class='alert alert-warning'>
-      {% for error in form.embedcode.errors %}
+      {% for error in form.lineItemId.errors %}
         {{ error }}
       {% endfor %}
       </ul>
