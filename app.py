@@ -29,6 +29,11 @@ try:
 except ImportError:
   print'urllib : library not found'
 
+try:
+    import io
+except ImportError:
+  print'io : library not found'
+
 sys.path.append('./helpers')
 
 
@@ -48,14 +53,26 @@ def index():
 
 ''' /string page should do the following
 
+
 '''
 @app.route("/<string:search>",methods=['GET', 'POST'])
 def searchEmbed(search):
     form = EmbedSearch(request.form)
-    inputFromPage = str(request.form['lineItemId']).replace(" ","")
-    lineItemdata = getLineItemResponse( inputFromPage)
+    # inputFromPage = str(request.form['lineItemId']).replace(" ","")
+    # lineItemdata = getLineItemResponse(inputFromPage)
+    lineItemdata = lineItemdata_dummy
     print lineItemdata
-    return render_template('details.html',form = form, data=None)
+    # with open('test_lineitem.json','w') as outfile:
+    #     json.dumps(lineItemdata,outfile)
+    #     outfile.close()
+    #     outfile.write(json.dumps(lineItemdata, ensure_ascii=False))
+    # with open("test_lineitem.json") as json_data:
+    #     lineItemdata=json.load(json_data)
+    #     print lineItemdata
+    if lineItemdata:
+        return render_template('details.html',form = form, data=[lineItemdata, None])
+    else:
+        return render_template('somthing_wrong.html')
 
 
 

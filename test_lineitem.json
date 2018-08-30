@@ -1,19 +1,17 @@
-
-
-lineItemdata_dummy = {
-    'orderId': 189203941L,
-    'id': 132730141L,
-    'name': 'palalbi_test_flashfile',
+{
+    'orderId': 184941901L,
+    'id': 117008341L,
+    'name': 'Test1',
     'externalId': None,
-    'orderName': 'Test_for_6-9131000004406',
+    'orderName': 'TestAdRotation',
     'startDateTime': {
         'date': {
             'year': 2014L,
-            'month': 10L,
-            'day': 9L
+            'month': 8L,
+            'day': 6L
         },
-        'hour': 15L,
-        'minute': 9L,
+        'hour': 0L,
+        'minute': 14L,
         'second': 0L,
         'timeZoneID': 'Asia/Calcutta'
     },
@@ -42,7 +40,59 @@ lineItemdata_dummy = {
     'creativePlaceholders': [
         {
             'size': {
-                'width': 300L,
+                'width': 970L,
+                'height': 120L,
+                'isAspectRatio': False
+            },
+            'creativeTemplateId': None,
+            'companions': [],
+            'appliedLabels': [],
+            'effectiveAppliedLabels': [],
+            'expectedCreativeCount': 1L,
+            'creativeSizeType': 'PIXEL',
+            'targetingName': None
+        },
+        {
+            'size': {
+                'width': 728L,
+                'height': 90L,
+                'isAspectRatio': False
+            },
+            'creativeTemplateId': None,
+            'companions': [],
+            'appliedLabels': [],
+            'effectiveAppliedLabels': [],
+            'expectedCreativeCount': 1L,
+            'creativeSizeType': 'PIXEL',
+            'targetingName': None
+        },
+        {
+            'size': {
+                'width': 600L,
+                'height': 500L,
+                'isAspectRatio': False
+            },
+            'creativeTemplateId': None,
+            'companions': [],
+            'appliedLabels': [
+                {
+                    'labelId': 593581L,
+                    'isNegated': False
+                }
+            ],
+            'effectiveAppliedLabels': [
+                {
+                    'labelId': 593581L,
+                    'isNegated': False
+                }
+            ],
+            'expectedCreativeCount': 1L,
+            'creativeSizeType': 'PIXEL',
+            'targetingName': None
+        },
+        {
+            'size': {
+                'width': 160L,
                 'height': 600L,
                 'isAspectRatio': False
             },
@@ -70,20 +120,6 @@ lineItemdata_dummy = {
         },
         {
             'size': {
-                'width': 240L,
-                'height': 400L,
-                'isAspectRatio': False
-            },
-            'creativeTemplateId': None,
-            'companions': [],
-            'appliedLabels': [],
-            'effectiveAppliedLabels': [],
-            'expectedCreativeCount': 1L,
-            'creativeSizeType': 'PIXEL',
-            'targetingName': None
-        },
-        {
-            'size': {
                 'width': 970L,
                 'height': 250L,
                 'isAspectRatio': False
@@ -98,7 +134,7 @@ lineItemdata_dummy = {
         },
         {
             'size': {
-                'width': 300L,
+                'width': 320L,
                 'height': 50L,
                 'isAspectRatio': False
             },
@@ -121,13 +157,13 @@ lineItemdata_dummy = {
             'appliedLabels': [],
             'effectiveAppliedLabels': [],
             'expectedCreativeCount': 1L,
-            'creativeSizeType': 'PIXEL',
+            'creativeSizeType': 'INTERSTITIAL',
             'targetingName': None
         },
         {
             'size': {
-                'width': 728L,
-                'height': 90L,
+                'width': 970L,
+                'height': 66L,
                 'isAspectRatio': False
             },
             'creativeTemplateId': None,
@@ -147,8 +183,8 @@ lineItemdata_dummy = {
     'skipCrossSellingRuleWarningChecks': False,
     'reserveAtCreation': False,
     'stats': {
-        'impressionsDelivered': 121L,
-        'clicksDelivered': 11L,
+        'impressionsDelivered': 582L,
+        'clicksDelivered': 3L,
         'videoCompletionsDelivered': 0L,
         'videoStartsDelivered': 0L,
         'viewableImpressionsDelivered': 0L
@@ -174,30 +210,39 @@ lineItemdata_dummy = {
     'isArchived': False,
     'webPropertyCode': None,
     'appliedLabels': [],
-    'effectiveAppliedLabels': [],
+    'effectiveAppliedLabels': [
+        {
+            'labelId': 472741L,
+            'isNegated': False
+        },
+        {
+            'labelId': 326581L,
+            'isNegated': False
+        }
+    ],
     'disableSameAdvertiserCompetitiveExclusion': False,
     'lastModifiedByApp': 'Goog_DFPUI',
     'notes': None,
     'lastModifiedDateTime': {
         'date': {
             'year': 2016L,
-            'month': 2L,
-            'day': 17L
+            'month': 3L,
+            'day': 21L
         },
-        'hour': 4L,
-        'minute': 6L,
+        'hour': 10L,
+        'minute': 3L,
         'second': 55L,
         'timeZoneID': 'PST8PDT'
     },
     'creationDateTime': {
         'date': {
             'year': 2014L,
-            'month': 10L,
-            'day': 9L
+            'month': 8L,
+            'day': 6L
         },
-        'hour': 15L,
-        'minute': 7L,
-        'second': 40L,
+        'hour': 0L,
+        'minute': 12L,
+        'second': 38L,
         'timeZoneID': 'Asia/Calcutta'
     },
     'isPrioritizedPreferredDealsEnabled': False,
@@ -216,15 +261,21 @@ lineItemdata_dummy = {
     'secondaryGoals': [],
     'grpSettings': None,
     'targeting': {
-        'geoTargeting': None,
+        'geoTargeting': {
+            'targetedLocations': [],
+            'excludedLocations': [
+                {
+                    'id': 21144L,
+                    'type': 'STATE',
+                    'canonicalParentId': 2840L,
+                    'displayName': 'Hawaii'
+                }
+            ]
+        },
         'inventoryTargeting': {
             'targetedAdUnits': [
                 {
-                    'adUnitId': '110438821',
-                    'includeDescendants': True
-                },
-                {
-                    'adUnitId': '81731701',
+                    'adUnitId': '81416101',
                     'includeDescendants': True
                 }
             ],
@@ -241,11 +292,3 @@ lineItemdata_dummy = {
     },
     'creativeTargetings': []
 }
-
-#global variables
-error_class = 'alert alert-danger'
-success_class = 'alert alert-success'
-#checks if connected to the internal server : time out is 3 seconds
-# def isInternalNetwork():
-#     response =  os.system("ping -c 1 -W 3 " + "10.50.40.166")
-#     return False if (response>0) else True

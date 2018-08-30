@@ -8,11 +8,11 @@ def getLineItemResponse(lineitemID):
     lineItem_service = ad_manager_client.GetService('LineItemService', version = version)
     lineitem_statement = (ad_manager.StatementBuilder()
             .Where('lineItemId = :lineItemId')
+            .Limit(1)
             .WithBindVariable('lineItemId', lineitemID))
     lineItem_response = lineItem_service.getLineItemsByStatement(lineitem_statement.ToStatement())
     if 'results' in lineItem_response and len(lineItem_response['results']):
-        print "Line Item Details : " + str(lineItem_response)
-        return lineItem_response
+        return lineItem_response['results'][0]
     else :
         print "something went wrong"
         return False
