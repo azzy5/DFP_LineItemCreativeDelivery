@@ -50,10 +50,10 @@
               <th>Order : <text class="text-justify" style="font-size: 10;color: #FFA233;"> {{ data[0]['orderName'] }} ( {{ data[0]['orderId'] }} ) </text></th>
             </tr>
             <tr>
-              <th> Sizes : <text style="font-size: 17;color: #FFA233;"> {{ data[0]['name'] }} </text></th>
-              <th>Missing Creatives ? : <text style="font-size: 17;color: #FFA233;"> {{ data[0]['name'] }} </text></th>
+              <th> CostType : <text style="font-size: 17;color: #FFA233;"> {{ data[0]['costType'] }} </text></th>
+              <th>Missing Creatives : <text style="font-size: 17;color: #FFA233;"> {{ data[0]['isMissingCreatives'] }} </text></th>
               <th>Email : <text style="font-size: 17;color: #FFA233;"> {{ data[0]['name'] }} </text></th>
-              <th> Notes : <text style="font-size: 17;color: #FFA233;"> {{ data[0]['name'] }} </text></th>
+              <th> Notes : <text style="font-size: 17;color: #FFA233;"> {{ data[0]['notes'] }} </text></th>
             </tr>
           </table>
         </div>
@@ -69,7 +69,7 @@
       {% endfor %}
       </text>
       &nbsp;&nbsp;Excluded Ad units : <text class="text-justify" style="font-size: 10;color: #FFA233;">
-      {% for items in data[0]['targeting']['inventoryTargeting'] ['targetedAdUnits']%}
+      {% for items in data[0]['targeting']['inventoryTargeting'] ['excludedAdUnits']%}
         {{  items['adUnitId'] }}
       {% endfor %}
       </text>
@@ -77,9 +77,60 @@
   </table>
   <table class="table-striped" style="width:100%;height:100%">
     <tr>
-      <td style="width:70%;height:100%"><iframe  style="width:100%;height:100%">a</iframe></td>
-      <td style="width:30%;height:100%"><iframe  style="width:100%;height:100%">a</iframe></td>
+      <th></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Creative ID</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Line Item</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Status</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Start time</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">End time</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Impressions</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Clicks</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Preview URL</text></th>
     </tr>
+    {% for results in data[1]['results']%}
+    <tr>
+      <form action="/generatePreviewURL" method="POST" target ="_blank"class="search-form">
+      <th > <INPUT TYPE="hidden" name="r_id" id="r_id" VALUE={{loop.index}}>{{loop.index}}</label></th>
+      <th > <input type = "hidden" name="cr_{{loop.index}}" value ={{ results['creativeId'] }}>{{ results['creativeId'] }}</th>
+      <th > <input type = "hidden" name="li_{{loop.index}}" value ={{ results['lineItemId'] }}>{{ results['lineItemId'] }}</th>
+      <th > {{ results['status'] }}</th>
+      <th >
+      {% if results['startDateTime'] == None %} None {% else %}
+      {{ results['startDateTime']['date']['day'] }}-{{ results['startDateTime']['date']['month'] }}-{{ results['startDateTime']['date']['year'] }}  {{ results['startDateTime']['hour'] }}:{{ results['startDateTime']['minute'] }}:{{ results['startDateTime']['second'] }}</th>
+      {% endif %}</th>
+      <th >
+      {% if results['endDateTime'] == None %}
+      None
+      {% else %}
+      {{ results['endDateTime']['date']['day'] }}-{{ results['endDateTime']['date']['month'] }}-{{ results['endDateTime']['date']['year'] }}  {{ results['endDateTime']['hour'] }}:{{ results['endDateTime']['minute'] }}:{{ results['endDateTime']['second'] }}</th>
+      {% endif %}</th>
+      <th > {% if results['stats'] == None %} None
+        {% else %}{{ results['stats']['stats']['impressionsDelivered'] }}
+        {% endif %}</th>
+      <th > {% if results['stats'] == None %} None
+        {% else %}{{ results['stats']['stats']['clicksDelivered'] }}
+      {% endif %}</th>
+      <th>
+        <div class="input-group">
+          <input type="text" class="form-control" name="previewURL" placeholder="URL for Preview" value= ""></input>
+            <div class="input-group-btn">
+              <button class="btn btn-default"  type="submit" value="">
+                <i class="glyphicon glyphicon-search"></i></button>
+                  {% if form.snap.errors %}
+                  <ul class=errors>
+                  {% for error in form.snap.errors %}
+                  <li>{{ error }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+         </div>
+      </th>
+      <th>
+      </th>
+    </tr>
+      </form>
+    {% endfor %}
   </table>
 </div>
 {% endblock %}
