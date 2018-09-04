@@ -1,4 +1,128 @@
 
+licadata_dummy = {
+    'totalResultSetSize': 3L,
+    'startIndex': 0L,
+    'results': [
+        {
+            'lineItemId': 114239941L,
+            'creativeId': 46835109661L,
+            'creativeSetId': None,
+            'manualCreativeRotationWeight': None,
+            'sequentialCreativeRotationIndex': None,
+            'startDateTime': None,
+            'startDateTimeType': 'USE_START_DATE_TIME',
+            'endDateTime': None,
+            'destinationUrl': None,
+            'sizes': [],
+            'status': 'INACTIVE',
+            'stats': {
+                'stats': {
+                    'impressionsDelivered': 74L,
+                    'clicksDelivered': 1L,
+                    'videoCompletionsDelivered': 0L,
+                    'videoStartsDelivered': 0L,
+                    'viewableImpressionsDelivered': 0L
+                },
+                'creativeSetStats': [],
+                'costInOrderCurrency': None
+            },
+            'lastModifiedDateTime': {
+                'date': {
+                    'year': 2018L,
+                    'month': 8L,
+                    'day': 8L
+                },
+                'hour': 11L,
+                'minute': 20L,
+                'second': 48L,
+                'timeZoneID': 'PST8PDT'
+            },
+            'targetingName': None
+        },
+        {
+            'lineItemId': 114239941L,
+            'creativeId': 113047537741L,
+            'creativeSetId': None,
+            'manualCreativeRotationWeight': None,
+            'sequentialCreativeRotationIndex': None,
+            'startDateTime': {
+                'date': {
+                    'year': 2016L,
+                    'month': 10L,
+                    'day': 25L
+                },
+                'hour': 14L,
+                'minute': 50L,
+                'second': 18L,
+                'timeZoneID': 'Asia/Calcutta'
+            },
+            'startDateTimeType': 'USE_START_DATE_TIME',
+            'endDateTime': None,
+            'destinationUrl': None,
+            'sizes': [],
+            'status': 'INACTIVE',
+            'stats': {
+                'stats': {
+                    'impressionsDelivered': 1L,
+                    'clicksDelivered': 1L,
+                    'videoCompletionsDelivered': 0L,
+                    'videoStartsDelivered': 0L,
+                    'viewableImpressionsDelivered': 0L
+                },
+                'creativeSetStats': [],
+                'costInOrderCurrency': None
+            },
+            'lastModifiedDateTime': {
+                'date': {
+                    'year': 2018L,
+                    'month': 8L,
+                    'day': 8L
+                },
+                'hour': 11L,
+                'minute': 20L,
+                'second': 48L,
+                'timeZoneID': 'PST8PDT'
+            },
+            'targetingName': None
+        },
+        {
+            'lineItemId': 114239941L,
+            'creativeId': 138240667451L,
+            'creativeSetId': None,
+            'manualCreativeRotationWeight': None,
+            'sequentialCreativeRotationIndex': None,
+            'startDateTime': None,
+            'startDateTimeType': 'USE_START_DATE_TIME',
+            'endDateTime': None,
+            'destinationUrl': None,
+            'sizes': [],
+            'status': 'ACTIVE',
+            'stats': {
+                'stats': {
+                    'impressionsDelivered': 14L,
+                    'clicksDelivered': 7L,
+                    'videoCompletionsDelivered': 0L,
+                    'videoStartsDelivered': 0L,
+                    'viewableImpressionsDelivered': 0L
+                },
+                'creativeSetStats': [],
+                'costInOrderCurrency': None
+            },
+            'lastModifiedDateTime': {
+                'date': {
+                    'year': 2018L,
+                    'month': 8L,
+                    'day': 8L
+                },
+                'hour': 11L,
+                'minute': 20L,
+                'second': 48L,
+                'timeZoneID': 'PST8PDT'
+            },
+            'targetingName': None
+        }
+    ]
+}
 
 lineItemdata_dummy = {
     'orderId': 189203941L,
