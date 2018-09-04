@@ -20,26 +20,47 @@
 from googleads import ad_manager
 version = 'v201802'
 lineitemID = '114239941'
-creativeID = ''
+creativeID = '46835109661'
 
-def main(client):
-    lineItem_service = client.GetService('LineItemService', version = version)
-    # Create a statement to select creatives.
-    lineitem_statement = (ad_manager.StatementBuilder()
-             .Where('lineItemId = :lineItemId')
-             .WithBindVariable('lineItemId', lineitemID))
-     # lica_response = lica_service.getLineItemCreativeAssociationsByStatement(lica_statement.ToStatement())
-    lineItem_response = lineItem_service.getLineItemsByStatement(lineitem_statement.ToStatement())
-    if 'results' in lineItem_response and len(lineItem_response['results']):
-        print "Line Item Details : " + str(lineItem_response)
-        return lineItem_response
+def creative_(client):
+    creative_service = client.GetService('CreativeService', version = version)
+    creative_statement = (ad_manager.StatementBuilder()
+               .Where('id = :creativeid')
+               .WithBindVariable('creativeid', creativeID))
+    creative_response = creative_service.getCreativesByStatement(creative_statement.ToStatement())
+    #print "Creative details : " + str(creative_response)
+    if 'results' in creative_response and len(creative_response['results']):
+        return creative_response['results'][0]
     else :
-        print "something went wrong"
+
         return False
 
-        # Create a statement to select creatives.
+# def lica_(client):
+#     lica_service = client.GetService('LineItemCreativeAssociationService', version = version)
+#     lica_statement = (ad_manager.StatementBuilder()
+#                .Where('lineItemId = :lineItemId')
+#                .WithBindVariable('lineItemId', lineitemID))
+#     lica_response = lica_service.getLineItemCreativeAssociationsByStatement(lica_statement.ToStatement())
+#     if 'results' in lica_response and len(lica_response['results']):
+#         return lica_response
+#     else :
+#         print "something went wrong"
+#         return False
+#
+# def lineitem_(client):
+#     lica_service = client.GetService('LineItemCreativeAssociationService', version = version)
+#     lica_statement = (ad_manager.StatementBuilder()
+#                .Where('lineItemId = :lineItemId')
+#                .WithBindVariable('lineItemId', lineitemID))
+#     lica_response = lica_service.getLineItemCreativeAssociationsByStatement(lica_statement.ToStatement())
+#     if 'results' in lica_response and len(lica_response['results']):
+#         return lica_response
+#     else :
+#         print "something went wrong"
+#         return False
+#         # Create a statement to select creatives.
 
 if __name__ == '__main__':
   # Initialize client object.
   ad_manager_client = ad_manager.AdManagerClient.LoadFromStorage()
-  main(ad_manager_client)
+  print creative_(ad_manager_client)
