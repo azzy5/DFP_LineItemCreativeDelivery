@@ -43,6 +43,7 @@ from FormsCheck import *
 
 
 app = Flask(__name__)
+client = ad_manager.AdManagerClient.LoadFromStorage()
 app.secret_key = 'Let it be a secrete'
 
 ''' The index page should only have the Search bar and the search button '''
@@ -53,30 +54,30 @@ def index():
 
 ''' /string page should do the following
 
-
 '''
 @app.route("/<string:search>",methods=['GET', 'POST'])
 def searchEmbed(search):
     form = EmbedSearch(request.form)
-    # inputFromPage = str(request.form['lineItemId']).replace(" ","")
-    # lineItemdata = getLineItemResponse(inputFromPage)
+    inputFromPage = str(request.form['lineItemId']).replace(" ","")
+    # lineItemdata = getLineItemResponse(client, inputFromPage)
+    # licadata = getLICAresponse(client, inputFromPage)
     lineItemdata = lineItemdata_dummy
-    print lineItemdata
-    # with open('test_lineitem.json','w') as outfile:
-    #     json.dumps(lineItemdata,outfile)
-    #     outfile.close()
-    #     outfile.write(json.dumps(lineItemdata, ensure_ascii=False))
-    # with open("test_lineitem.json") as json_data:
-    #     lineItemdata=json.load(json_data)
-    #     print lineItemdata
+    licadata = licadata_dummy
+    #print licadata
     if lineItemdata:
-        return render_template('details.html',form = form, data=[lineItemdata, None])
+        return render_template('details.html',form = form, data=[lineItemdata, licadata])
     else:
         return render_template('somthing_wrong.html')
 
-
+@app.route("/generatePreviewURL",methods=['GET', 'POST'])
+def createPreview():
+    form = EmbedSearch(request.form)
+    index = request.form['r_id']
+    previewURL = request.form['previewURL']
+    lineitem_ = request.form['li_'+index]
+    creative_ = request.form['cr_'+index]
+    return lineitem_ + " , " + creative_ + " , " +index + " , " +previewURL
 
 
 if __name__ == '__main__':
-
     app.run(debug=True)
