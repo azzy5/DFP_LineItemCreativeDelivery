@@ -36,11 +36,9 @@ except ImportError:
 
 sys.path.append('./helpers')
 
-
 from utils import *
 from Validation import *
 from FormsCheck import *
-
 
 app = Flask(__name__)
 client = ad_manager.AdManagerClient.LoadFromStorage()
@@ -59,13 +57,13 @@ def index():
 def searchEmbed(search):
     form = EmbedSearch(request.form)
     inputFromPage = str(request.form['lineItemId']).replace(" ","")
-    # lineItemdata = getLineItemResponse(client, inputFromPage)
-    # licadata = getLICAresponse(client, inputFromPage)
-    lineItemdata = lineItemdata_dummy
-    licadata = licadata_dummy
-    #print licadata
+    lineItemdata = getLineItemResponse(client, inputFromPage)
+    licadata = getLICAresponse(client, inputFromPage)
+    # lineItemdata = lineItemdata_dummy
+    # licadata = licadata_dummy
+    print lineItemdata
     if lineItemdata:
-        return render_template('details.html',form = form, data=[lineItemdata, licadata])
+        return render_template('lineitem_template.html',form = form, data=[lineItemdata, licadata])
     else:
         return render_template('somthing_wrong.html')
 
@@ -76,7 +74,8 @@ def createPreview():
     previewURL = request.form['previewURL']
     lineitem_ = request.form['li_'+index]
     creative_ = request.form['cr_'+index]
-    return lineitem_ + " , " + creative_ + " , " +index + " , " +previewURL
+    print lineitem_ + " , " + creative_ + " , " +index + " , " +previewURL
+    return render_template('preview.html')
 
 
 if __name__ == '__main__':
