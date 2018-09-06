@@ -31,7 +31,7 @@ except ImportError:
 
 sys.path.append('./helpers')
 
-
+from FormsCheck import EmbedSearch
 
 app = Flask(__name__)
 app.secret_key = 'Let it be a secrete'
