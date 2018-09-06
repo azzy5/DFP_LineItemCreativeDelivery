@@ -29,15 +29,19 @@ try:
 except ImportError:
   print'urllib : library not found'
 
-sys.path.append('./helpers')
+try:
+    import io
+except ImportError:
+  print'io : library not found'
 
+sys.path.append('./helpers')
 
 from utils import *
 from Validation import *
 from FormsCheck import *
 
-
 app = Flask(__name__)
+client = ad_manager.AdManagerClient.LoadFromStorage()
 app.secret_key = 'Let it be a secrete'
 
 ''' The index page should only have the Search bar and the search button '''
@@ -53,13 +57,26 @@ def index():
 def searchEmbed(search):
     form = EmbedSearch(request.form)
     inputFromPage = str(request.form['lineItemId']).replace(" ","")
-    lineItemdata = getLineItemResponse( inputFromPage)
+    lineItemdata = getLineItemResponse(client, inputFromPage)
+    licadata = getLICAresponse(client, inputFromPage)
+    # lineItemdata = lineItemdata_dummy
+    # licadata = licadata_dummy
     print lineItemdata
-    return render_template('details.html',form = form, data=None)
+    if lineItemdata:
+        return render_template('lineitem_template.html',form = form, data=[lineItemdata, licadata])
+    else:
+        return render_template('somthing_wrong.html')
 
-
+@app.route("/generatePreviewURL",methods=['GET', 'POST'])
+def createPreview():
+    form = EmbedSearch(request.form)
+    index = request.form['r_id']
+    previewURL = request.form['previewURL']
+    lineitem_ = request.form['li_'+index]
+    creative_ = request.form['cr_'+index]
+    print lineitem_ + " , " + creative_ + " , " +index + " , " +previewURL
+    return render_template('preview.html')
 
 
 if __name__ == '__main__':
-
     app.run(debug=True)
