@@ -1,0 +1,294 @@
+{
+    'orderId': 184941901L,
+    'id': 117008341L,
+    'name': 'Test1',
+    'externalId': None,
+    'orderName': 'TestAdRotation',
+    'startDateTime': {
+        'date': {
+            'year': 2014L,
+            'month': 8L,
+            'day': 6L
+        },
+        'hour': 0L,
+        'minute': 14L,
+        'second': 0L,
+        'timeZoneID': 'Asia/Calcutta'
+    },
+    'startDateTimeType': 'USE_START_DATE_TIME',
+    'endDateTime': None,
+    'autoExtensionDays': 0L,
+    'unlimitedEndDateTime': True,
+    'creativeRotationType': 'OPTIMIZED',
+    'deliveryRateType': 'FRONTLOADED',
+    'roadblockingType': 'ONE_OR_MORE',
+    'frequencyCaps': [],
+    'lineItemType': 'SPONSORSHIP',
+    'priority': 1L,
+    'costPerUnit': {
+        'currencyCode': 'USD',
+        'microAmount': 0L
+    },
+    'valueCostPerUnit': {
+        'currencyCode': 'USD',
+        'microAmount': 0L
+    },
+    'costType': 'CPD',
+    'discountType': 'PERCENTAGE',
+    'discount': 0.0,
+    'contractedUnitsBought': 0L,
+    'creativePlaceholders': [
+        {
+            'size': {
+                'width': 970L,
+                'height': 120L,
+                'isAspectRatio': False
+            },
+            'creativeTemplateId': None,
+            'companions': [],
+            'appliedLabels': [],
+            'effectiveAppliedLabels': [],
+            'expectedCreativeCount': 1L,
+            'creativeSizeType': 'PIXEL',
+            'targetingName': None
+        },
+        {
+            'size': {
+                'width': 728L,
+                'height': 90L,
+                'isAspectRatio': False
+            },
+            'creativeTemplateId': None,
+            'companions': [],
+            'appliedLabels': [],
+            'effectiveAppliedLabels': [],
+            'expectedCreativeCount': 1L,
+            'creativeSizeType': 'PIXEL',
+            'targetingName': None
+        },
+        {
+            'size': {
+                'width': 600L,
+                'height': 500L,
+                'isAspectRatio': False
+            },
+            'creativeTemplateId': None,
+            'companions': [],
+            'appliedLabels': [
+                {
+                    'labelId': 593581L,
+                    'isNegated': False
+                }
+            ],
+            'effectiveAppliedLabels': [
+                {
+                    'labelId': 593581L,
+                    'isNegated': False
+                }
+            ],
+            'expectedCreativeCount': 1L,
+            'creativeSizeType': 'PIXEL',
+            'targetingName': None
+        },
+        {
+            'size': {
+                'width': 160L,
+                'height': 600L,
+                'isAspectRatio': False
+            },
+            'creativeTemplateId': None,
+            'companions': [],
+            'appliedLabels': [],
+            'effectiveAppliedLabels': [],
+            'expectedCreativeCount': 1L,
+            'creativeSizeType': 'PIXEL',
+            'targetingName': None
+        },
+        {
+            'size': {
+                'width': 300L,
+                'height': 250L,
+                'isAspectRatio': False
+            },
+            'creativeTemplateId': None,
+            'companions': [],
+            'appliedLabels': [],
+            'effectiveAppliedLabels': [],
+            'expectedCreativeCount': 1L,
+            'creativeSizeType': 'PIXEL',
+            'targetingName': None
+        },
+        {
+            'size': {
+                'width': 970L,
+                'height': 250L,
+                'isAspectRatio': False
+            },
+            'creativeTemplateId': None,
+            'companions': [],
+            'appliedLabels': [],
+            'effectiveAppliedLabels': [],
+            'expectedCreativeCount': 1L,
+            'creativeSizeType': 'PIXEL',
+            'targetingName': None
+        },
+        {
+            'size': {
+                'width': 320L,
+                'height': 50L,
+                'isAspectRatio': False
+            },
+            'creativeTemplateId': None,
+            'companions': [],
+            'appliedLabels': [],
+            'effectiveAppliedLabels': [],
+            'expectedCreativeCount': 1L,
+            'creativeSizeType': 'PIXEL',
+            'targetingName': None
+        },
+        {
+            'size': {
+                'width': 1L,
+                'height': 1L,
+                'isAspectRatio': False
+            },
+            'creativeTemplateId': None,
+            'companions': [],
+            'appliedLabels': [],
+            'effectiveAppliedLabels': [],
+            'expectedCreativeCount': 1L,
+            'creativeSizeType': 'INTERSTITIAL',
+            'targetingName': None
+        },
+        {
+            'size': {
+                'width': 970L,
+                'height': 66L,
+                'isAspectRatio': False
+            },
+            'creativeTemplateId': None,
+            'companions': [],
+            'appliedLabels': [],
+            'effectiveAppliedLabels': [],
+            'expectedCreativeCount': 1L,
+            'creativeSizeType': 'PIXEL',
+            'targetingName': None
+        }
+    ],
+    'activityAssociations': [],
+    'environmentType': 'BROWSER',
+    'companionDeliveryOption': 'UNKNOWN',
+    'allowOverbook': False,
+    'skipInventoryCheck': False,
+    'skipCrossSellingRuleWarningChecks': False,
+    'reserveAtCreation': False,
+    'stats': {
+        'impressionsDelivered': 582L,
+        'clicksDelivered': 3L,
+        'videoCompletionsDelivered': 0L,
+        'videoStartsDelivered': 0L,
+        'viewableImpressionsDelivered': 0L
+    },
+    'deliveryIndicator': None,
+    'deliveryData': {
+        'units': [
+            0L,
+            0L,
+            0L,
+            0L,
+            0L,
+            0L,
+            0L
+        ]
+    },
+    'budget': {
+        'currencyCode': 'USD',
+        'microAmount': 0L
+    },
+    'status': 'DELIVERING',
+    'reservationStatus': 'RESERVED',
+    'isArchived': False,
+    'webPropertyCode': None,
+    'appliedLabels': [],
+    'effectiveAppliedLabels': [
+        {
+            'labelId': 472741L,
+            'isNegated': False
+        },
+        {
+            'labelId': 326581L,
+            'isNegated': False
+        }
+    ],
+    'disableSameAdvertiserCompetitiveExclusion': False,
+    'lastModifiedByApp': 'Goog_DFPUI',
+    'notes': None,
+    'lastModifiedDateTime': {
+        'date': {
+            'year': 2016L,
+            'month': 3L,
+            'day': 21L
+        },
+        'hour': 10L,
+        'minute': 3L,
+        'second': 55L,
+        'timeZoneID': 'PST8PDT'
+    },
+    'creationDateTime': {
+        'date': {
+            'year': 2014L,
+            'month': 8L,
+            'day': 6L
+        },
+        'hour': 0L,
+        'minute': 12L,
+        'second': 38L,
+        'timeZoneID': 'Asia/Calcutta'
+    },
+    'isPrioritizedPreferredDealsEnabled': False,
+    'adExchangeAuctionOpeningPriority': 0L,
+    'customFieldValues': [],
+    'isSetTopBoxEnabled': False,
+    'isMissingCreatives': True,
+    'setTopBoxDisplayInfo': None,
+    'programmaticCreativeSource': None,
+    'videoMaxDuration': 0L,
+    'primaryGoal': {
+        'goalType': 'DAILY',
+        'unitType': 'IMPRESSIONS',
+        'units': 100L
+    },
+    'secondaryGoals': [],
+    'grpSettings': None,
+    'targeting': {
+        'geoTargeting': {
+            'targetedLocations': [],
+            'excludedLocations': [
+                {
+                    'id': 21144L,
+                    'type': 'STATE',
+                    'canonicalParentId': 2840L,
+                    'displayName': 'Hawaii'
+                }
+            ]
+        },
+        'inventoryTargeting': {
+            'targetedAdUnits': [
+                {
+                    'adUnitId': '81416101',
+                    'includeDescendants': True
+                }
+            ],
+            'excludedAdUnits': [],
+            'targetedPlacementIds': []
+        },
+        'dayPartTargeting': None,
+        'technologyTargeting': None,
+        'customTargeting': None,
+        'userDomainTargeting': None,
+        'contentTargeting': None,
+        'videoPositionTargeting': None,
+        'mobileApplicationTargeting': None
+    },
+    'creativeTargetings': []
+}
