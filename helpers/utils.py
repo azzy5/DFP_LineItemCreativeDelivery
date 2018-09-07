@@ -1,4 +1,59 @@
-
+order_dummy ={
+    'id': 407417581L,
+    'name': 'Test_Mobile_Ads',
+    'startDateTime': {
+        'date': {
+            'year': 2017L,
+            'month': 3L,
+            'day': 26L
+        },
+        'hour': 16L,
+        'minute': 21L,
+        'second': 0L,
+        'timeZoneID': 'Asia/Calcutta'
+    },
+    'endDateTime': None,
+    'unlimitedEndDateTime': True,
+    'status': 'APPROVED',
+    'isArchived': False,
+    'notes': None,
+    'externalOrderId': 0L,
+    'poNumber': None,
+    'currencyCode': 'USD',
+    'advertiserId': 104782381L,
+    'advertiserContactIds': [],
+    'agencyId': None,
+    'agencyContactIds': [],
+    'creatorId': 169419661L,
+    'traffickerId': 169419661L,
+    'secondaryTraffickerIds': [],
+    'salespersonId': None,
+    'secondarySalespersonIds': [],
+    'totalImpressionsDelivered': 24L,
+    'totalClicksDelivered': 1L,
+    'totalViewableImpressionsDelivered': None,
+    'totalBudget': {
+        'currencyCode': 'USD',
+        'microAmount': 0L
+    },
+    'appliedLabels': [],
+    'effectiveAppliedLabels': [],
+    'lastModifiedByApp': 'Goog_DFPUI',
+    'isProgrammatic': False,
+    'appliedTeamIds': [],
+    'lastModifiedDateTime': {
+        'date': {
+            'year': 2018L,
+            'month': 9L,
+            'day': 6L
+        },
+        'hour': 8L,
+        'minute': 53L,
+        'second': 39L,
+        'timeZoneID': 'PST8PDT'
+    },
+    'customFieldValues': []
+}
 licadata_dummy = {
     'totalResultSetSize': 3L,
     'startIndex': 0L,
@@ -123,6 +178,318 @@ licadata_dummy = {
         }
     ]
 }
+lineitems_dummy = [{
+    'orderId': 407417581L,
+    'id': 378634861L,
+    'name': 'Test_in_App',
+    'externalId': None,
+    'orderName': 'Test_Mobile_Ads',
+    'startDateTime': {
+        'date': {
+            'year': 2017L,
+            'month': 3L,
+            'day': 26L
+        },
+        'hour': 16L,
+        'minute': 21L,
+        'second': 0L,
+        'timeZoneID': 'Asia/Calcutta'
+    },
+    'startDateTimeType': 'USE_START_DATE_TIME',
+    'endDateTime': None,
+    'autoExtensionDays': 0L,
+    'unlimitedEndDateTime': True,
+    'creativeRotationType': 'OPTIMIZED',
+    'deliveryRateType': 'EVENLY',
+    'roadblockingType': 'ONE_OR_MORE',
+    'frequencyCaps': [],
+    'lineItemType': 'SPONSORSHIP',
+    'priority': 4L,
+    'costPerUnit': {
+        'currencyCode': 'USD',
+        'microAmount': 0L
+    },
+    'valueCostPerUnit': {
+        'currencyCode': 'USD',
+        'microAmount': 0L
+    },
+    'costType': 'CPD',
+    'discountType': 'PERCENTAGE',
+    'discount': 0.0,
+    'contractedUnitsBought': 0L,
+    'creativePlaceholders': [
+        {
+            'size': {
+                'width': 300L,
+                'height': 50L,
+                'isAspectRatio': False
+            },
+            'creativeTemplateId': None,
+            'companions': [],
+            'appliedLabels': [],
+            'effectiveAppliedLabels': [],
+            'expectedCreativeCount': 1L,
+            'creativeSizeType': 'PIXEL',
+            'targetingName': None
+        }
+    ],
+    'activityAssociations': [],
+    'environmentType': 'BROWSER',
+    'companionDeliveryOption': 'UNKNOWN',
+    'allowOverbook': False,
+    'skipInventoryCheck': False,
+    'skipCrossSellingRuleWarningChecks': False,
+    'reserveAtCreation': False,
+    'stats': {
+        'impressionsDelivered': 23L,
+        'clicksDelivered': 1L,
+        'videoCompletionsDelivered': 0L,
+        'videoStartsDelivered': 0L,
+        'viewableImpressionsDelivered': 0L
+    },
+    'deliveryIndicator': None,
+    'deliveryData': {
+        'units': [
+            0L,
+            0L,
+            0L,
+            0L,
+            0L,
+            0L,
+            0L
+        ]
+    },
+    'budget': {
+        'currencyCode': 'USD',
+        'microAmount': 0L
+    },
+    'status': 'DELIVERING',
+    'reservationStatus': 'RESERVED',
+    'isArchived': False,
+    'webPropertyCode': None,
+    'appliedLabels': [],
+    'effectiveAppliedLabels': [],
+    'disableSameAdvertiserCompetitiveExclusion': False,
+    'lastModifiedByApp': 'Goog_DFPUI',
+    'notes': None,
+    'lastModifiedDateTime': {
+        'date': {
+            'year': 2017L,
+            'month': 3L,
+            'day': 26L
+        },
+        'hour': 7L,
+        'minute': 44L,
+        'second': 23L,
+        'timeZoneID': 'PST8PDT'
+    },
+    'creationDateTime': {
+        'date': {
+            'year': 2017L,
+            'month': 3L,
+            'day': 26L
+        },
+        'hour': 16L,
+        'minute': 19L,
+        'second': 8L,
+        'timeZoneID': 'Asia/Calcutta'
+    },
+    'isPrioritizedPreferredDealsEnabled': False,
+    'adExchangeAuctionOpeningPriority': 0L,
+    'customFieldValues': [],
+    'isSetTopBoxEnabled': False,
+    'isMissingCreatives': False,
+    'setTopBoxDisplayInfo': None,
+    'programmaticCreativeSource': None,
+    'videoMaxDuration': 0L,
+    'primaryGoal': {
+        'goalType': 'DAILY',
+        'unitType': 'IMPRESSIONS',
+        'units': 100L
+    },
+    'secondaryGoals': [],
+    'grpSettings': None,
+    'targeting': {
+        'geoTargeting': None,
+        'inventoryTargeting': {
+            'targetedAdUnits': [
+                {
+                    'adUnitId': '321837181',
+                    'includeDescendants': True
+                }
+            ],
+            'excludedAdUnits': [],
+            'targetedPlacementIds': []
+        },
+        'dayPartTargeting': None,
+        'technologyTargeting': None,
+        'customTargeting': {
+            'logicalOperator': 'OR',
+            'children': [
+                {
+                    'logicalOperator': 'AND',
+                    'children': [
+                        {
+                            'keyId': 714181L,
+                            'valueIds': [
+                                197583033421L
+                            ],
+                            'operator': 'IS'
+                        }
+                    ]
+                }
+            ]
+        },
+        'userDomainTargeting': None,
+        'contentTargeting': None,
+        'videoPositionTargeting': None,
+        'mobileApplicationTargeting': None
+    },
+    'creativeTargetings': []
+}, {
+    'orderId': 407417581L,
+    'id': 4789971322L,
+    'name': 'Test_LineItem',
+    'externalId': None,
+    'orderName': 'Test_Mobile_Ads',
+    'startDateTime': {
+        'date': {
+            'year': 2018L,
+            'month': 9L,
+            'day': 6L
+        },
+        'hour': 21L,
+        'minute': 24L,
+        'second': 0L,
+        'timeZoneID': 'Asia/Calcutta'
+    },
+    'startDateTimeType': 'USE_START_DATE_TIME',
+    'endDateTime': None,
+    'autoExtensionDays': 0L,
+    'unlimitedEndDateTime': True,
+    'creativeRotationType': 'EVEN',
+    'deliveryRateType': 'EVENLY',
+    'roadblockingType': 'ONLY_ONE',
+    'frequencyCaps': [],
+    'lineItemType': 'SPONSORSHIP',
+    'priority': 4L,
+    'costPerUnit': {
+        'currencyCode': 'USD',
+        'microAmount': 0L
+    },
+    'valueCostPerUnit': {
+        'currencyCode': 'USD',
+        'microAmount': 0L
+    },
+    'costType': 'CPD',
+    'discountType': 'PERCENTAGE',
+    'discount': 0.0,
+    'contractedUnitsBought': 0L,
+    'creativePlaceholders': [
+        {
+            'size': {
+                'width': 300L,
+                'height': 250L,
+                'isAspectRatio': False
+            },
+            'creativeTemplateId': None,
+            'companions': [],
+            'appliedLabels': [],
+            'effectiveAppliedLabels': [],
+            'expectedCreativeCount': 1L,
+            'creativeSizeType': 'PIXEL',
+            'targetingName': None
+        }
+    ],
+    'activityAssociations': [],
+    'environmentType': 'BROWSER',
+    'companionDeliveryOption': 'UNKNOWN',
+    'allowOverbook': False,
+    'skipInventoryCheck': False,
+    'skipCrossSellingRuleWarningChecks': False,
+    'reserveAtCreation': False,
+    'stats': {
+        'impressionsDelivered': 1L,
+        'clicksDelivered': 0L,
+        'videoCompletionsDelivered': 0L,
+        'videoStartsDelivered': 0L,
+        'viewableImpressionsDelivered': 0L
+    },
+    'deliveryIndicator': None,
+    'deliveryData': None,
+    'budget': {
+        'currencyCode': 'USD',
+        'microAmount': 0L
+    },
+    'status': 'DELIVERING',
+    'reservationStatus': 'RESERVED',
+    'isArchived': False,
+    'webPropertyCode': None,
+    'appliedLabels': [],
+    'effectiveAppliedLabels': [],
+    'disableSameAdvertiserCompetitiveExclusion': True,
+    'lastModifiedByApp': 'Goog_DFPUI',
+    'notes': None,
+    'lastModifiedDateTime': {
+        'date': {
+            'year': 2018L,
+            'month': 9L,
+            'day': 6L
+        },
+        'hour': 8L,
+        'minute': 53L,
+        'second': 39L,
+        'timeZoneID': 'PST8PDT'
+    },
+    'creationDateTime': {
+        'date': {
+            'year': 2018L,
+            'month': 9L,
+            'day': 6L
+        },
+        'hour': 21L,
+        'minute': 22L,
+        'second': 7L,
+        'timeZoneID': 'Asia/Calcutta'
+    },
+    'isPrioritizedPreferredDealsEnabled': False,
+    'adExchangeAuctionOpeningPriority': 0L,
+    'customFieldValues': [],
+    'isSetTopBoxEnabled': False,
+    'isMissingCreatives': False,
+    'setTopBoxDisplayInfo': None,
+    'programmaticCreativeSource': None,
+    'videoMaxDuration': 0L,
+    'primaryGoal': {
+        'goalType': 'DAILY',
+        'unitType': 'IMPRESSIONS',
+        'units': 100L
+    },
+    'secondaryGoals': [],
+    'grpSettings': None,
+    'targeting': {
+        'geoTargeting': None,
+        'inventoryTargeting': {
+            'targetedAdUnits': [
+                {
+                    'adUnitId': '126641941',
+                    'includeDescendants': True
+                }
+            ],
+            'excludedAdUnits': [],
+            'targetedPlacementIds': []
+        },
+        'dayPartTargeting': None,
+        'technologyTargeting': None,
+        'customTargeting': None,
+        'userDomainTargeting': None,
+        'contentTargeting': None,
+        'videoPositionTargeting': None,
+        'mobileApplicationTargeting': None
+    },
+    'creativeTargetings': []
+}]
+
 
 lineItemdata_dummy = {
     'orderId': 189203941L,

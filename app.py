@@ -50,18 +50,26 @@ def index():
     form = EmbedSearch(request.form)
     return render_template('index.html',form = form)
 
-''' /string page should do the following
-
-'''
-@app.route("/<string:search>",methods=['GET', 'POST'])
-def searchEmbed(search):
+''' /string page should do the following '''
+@app.route("/search",methods=['GET', 'POST'])
+def searchOrder():
     form = EmbedSearch(request.form)
     inputFromPage = str(request.form['lineItemId']).replace(" ","")
+    orderDetials = getOrderDetails(client, inputFromPage)
+    print orderDetials
+    lineitem_list = getLineItemListWithOrder(client, inputFromPage)
+    return render_template('order_template.html',form = form, data= [orderDetials,lineitem_list])
+
+''' /lineitem page should do the following '''
+@app.route("/lica_",methods=['GET', 'POST'])
+def doLiCa():
+    form = EmbedSearch(request.form)
+    inputFromPage = request.form['li_id']
     lineItemdata = getLineItemResponse(client, inputFromPage)
     licadata = getLICAresponse(client, inputFromPage)
     # lineItemdata = lineItemdata_dummy
     # licadata = licadata_dummy
-    print lineItemdata
+    #print lineItemdata
     if lineItemdata:
         return render_template('lineitem_template.html',form = form, data=[lineItemdata, licadata])
     else:

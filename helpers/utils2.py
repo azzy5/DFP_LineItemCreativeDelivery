@@ -1,18 +1,3 @@
-#!/usr/bin/env python
-#
-# Copyright 2016 Google Inc. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 from random import randint
 from googleads import ad_manager
 
@@ -27,11 +12,25 @@ def getOrderDetails(client, orderID):
             .WithBindVariable('orderID', orderID))
     order_response = order_service.getOrdersByStatement(order_statement.ToStatement())
     if 'results' in order_response and len(order_response['results']):
-        return order_response['results']
+        print order_response['results'][0]
+        return order_response['results'][0]
     else :
         print "something went wrong"
         return False
 
+
+def getLineItemListWithOrder(client, orderID):
+    lineItem_service = client.GetService('LineItemService', version = version)
+    lineitem_statement = (ad_manager.StatementBuilder()
+            .Where('orderId = :order_ID')
+            .WithBindVariable('order_ID', orderID))
+    lineItem_response = lineItem_service.getLineItemsByStatement(lineitem_statement.ToStatement())
+    if 'results' in lineItem_response and len(lineItem_response['results']):
+        
+        return lineItem_response['results']
+    else :
+        print "something went wrong"
+        return False
 
 
 def getLineItemDetails(client, lineitemID):
@@ -47,19 +46,7 @@ def getLineItemDetails(client, lineitemID):
         print "something went wrong"
         return False
 
-def getLineItemListWithOrder(client, orderID):
-    lineItem_service = client.GetService('LineItemService', version = version)
-    lineitem_statement = (ad_manager.StatementBuilder()
-            .Where('orderId = :order_ID')
-            .WithBindVariable('order_ID', orderID))
-    lineItem_response = lineItem_service.getLineItemsByStatement(lineitem_statement.ToStatement())
-    if 'results' in lineItem_response and len(lineItem_response['results']):
-        for idx,item in enumerate( lineItem_response['results']):
-            print item['name']
-        return lineItem_response['results']
-    else :
-        print "something went wrong"
-        return False
+
 
 
 def getCreativesdetails(client, creativeID):
@@ -67,6 +54,7 @@ def getCreativesdetails(client, creativeID):
     creative_service = client.GetService('CreativeService', version = version)
     creative_statement = (ad_manager.StatementBuilder()
                .Where('id = :creativeid')
+               .Limit(1)
                .WithBindVariable('creativeid', creativeID))
     creative_response = creative_service.getCreativesByStatement(creative_statement.ToStatement())
     #print "Creative details : " + str(creative_response)
@@ -88,31 +76,14 @@ def getLICAresponse(client,lineitemID):
         print "something went wrong"
         return False
 
-def getAllCreativeResponse(client,creativeList):
+def getAllCreativeResponse(client):
     creative_service = client.GetService('CreativeService', version = version)
     creative_statement = (ad_manager.StatementBuilder()
                .Where('id = :creativeid')
-               .WithBindVariable('creativeid', creativeList))
+               .WithBindVariable('creativeid', ['138236007035','138235934673','138206449211']))
     creative_response = creative_service.getCreativesByStatement(creative_statement.ToStatement())
     #print "Creative details : " + str(creative_response)
     if 'results' in creative_response and len(creative_response['results']):
         return creative_response['results']
     else :
         return False
-
-if __name__ == '__main__':
-  # Initialize client object.
-  ad_manager_client = ad_manager.AdManagerClient.LoadFromStorage()
-  data  = [getOrderDetails(ad_manager_client, '407417581'),getLineItemListWithOrder(ad_manager_client, '407417581')]
-  print "---- Order ----"
-  print data[0]
-  print "---- LineItems ----"
-  print data[1]
-
-
-#Steps
-
-# 1. Read Order ID from Search Bar
-# 2. Get order details and line item Details with the Lineitem and Order services (object --> data['order',['lineitems']])
-# 3. Render the page with page with order details & list of line item and details
-# 4.

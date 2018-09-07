@@ -1,0 +1,111 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="row col-md-offset-3">
+  <div style="width:70%;">
+    <form action="/search" method="POST" class="search-form">
+      <div class="input-group">
+        <input type="text" class="form-control" name="lineItemId" placeholder="Please enter the Order " value= {{ data[0]['id'] }}></input>
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit" value="search_embed">
+           <i class="glyphicon glyphicon-search"></i></button>
+          {% if form.lineItemId.errors %}
+          <ul class=errors>
+            {% for error in form.lineItemId.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="panel-body">
+  <table class="table-striped" style="width:100%;">
+    <tr>
+      <th>
+        <div class="name-column">
+          <table class="table">
+            <tr>
+              <th>Order ID : <text class="text-justify" style="font-size: 10;color: #FFA233;"><a href="https://admanager.google.com/82109981#delivery/OrderDetail/orderId={{ data[0]['id'] }}"> {{ data[0]['id'] }} </a></text></th>
+              <th>Order name : <text class="text-justify" style="font-size: 10;color: #FFA233;"> {{ data[0]['name'] }}</text></th>
+              <th>Start Time : <text class="text-justify" style="font-size: 10;color: #FFA233;">
+                {% if data[0]['startDateTime'] == None %}
+                -
+                {% else %}
+                {{ data[0]['startDateTime']['date']['day'] }}-{{ data[0]['startDateTime']['date']['month'] }}-{{ data[0]['startDateTime']['date']['year'] }}  {{ data[0]['startDateTime']['hour'] }}:{{ data[0]['startDateTime']['minute'] }}:{{ data[0]['startDateTime']['second'] }}
+                {% endif %}</text></th>
+              <th>End time : <text class="text-justify" style="font-size: 10;color: #FFA233;">
+              {% if data[0]['endDateTime'] == None %}
+              - {% else %}
+              {{ data[0]['endDateTime']['date']['day'] }}-{{ data[0]['endDateTime']['date']['month'] }}-{{ data[0]['endDateTime']['date']['year'] }}  {{ data[0]['endDateTime']['hour'] }}:{{ data[0]['endDateTime']['minute'] }}:{{ data[0]['endDateTime']['second'] }}{% endif %} </text></th>
+            </tr>
+            <tr>
+              <th>Status : <text class="text-justify" style="font-size: 10;color: #FFA233;"> {{ data[0]['status'] }} </text></th>
+              <td>Impressions : <text style="font-size: 17;color: #FFA233;"> {{ data[0]['totalImpressionsDelivered'] }} </text></td>
+              <th>Clicks : <text class="text-justify" style="font-size: 10;color: #FFA233;"> {{ data[0]['totalClicksDelivered']}} </text></th>
+              <th>Viewable Imp :<text class="text-justify" style="font-size: 10;color: #FFA233;"> {{ data[0]['totalViewableImpressionsDelivered']}} </text></th>
+            </tr>
+          </table>
+        </div>
+      </th>
+    </tr>
+  </table>
+  <table class="table-striped" style="width:100%;height:100%">
+    <tr>
+      <th></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">LineItem ID</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Name</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Type</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Start Time</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">End Time</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Impressions</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Clicks</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;"></text></th>
+    </tr>
+    {% for results in data[1]%}
+    <tr>
+      <form action="/lica_" method="POST" target="_blank" class="search-form">
+        <th> {{loop.index}}</th>
+        <th> <input type = "hidden" name="li_id" value={{ results['id'] }} >{{ results['id'] }}</th>
+        <th> <input type = "hidden" name="name" >{{ results['name'] }}</th>
+        <th> {{ results['lineItemType'] }}</th>
+        <th>
+          {% if results['startDateTime'] == None %} None {% else %}
+          {{ results['startDateTime']['date']['day'] }}-{{ results['startDateTime']['date']['month'] }}-{{ results['startDateTime']['date']['year'] }} {{ results['startDateTime']['hour'] }}:{{ results['startDateTime']['minute'] }}:{{ results['startDateTime']['second'] }}</th>
+        {% endif %}</th>
+        <th>
+          {% if results['endDateTime'] == None %}
+          None
+          {% else %}
+          {{ results['endDateTime']['date']['day'] }}-{{ results['endDateTime']['date']['month'] }}-{{ results['endDateTime']['date']['year'] }} {{ results['endDateTime']['hour'] }}:{{ results['endDateTime']['minute'] }}:{{ results['endDateTime']['second'] }}</th>
+        {% endif %}</th>
+        <th> {% if results['stats'] == None %} -
+          {% else %}{{ results['stats']['impressionsDelivered'] }}
+          {% endif %}</th>
+        <th> {% if results['stats'] == None %} None
+          {% else %}{{ results['stats']['clicksDelivered'] }}
+          {% endif %}</th>
+        <th>
+          <div class="input-group-btn">
+            <button class="btn btn-default"  type="submit" value="">
+              <i class="glyphicon glyphicon-arrow-right"></i></button>
+                {% if form.snap.errors %}
+                <ul class=errors>
+                {% for error in form.snap.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </th>
+        <th>
+
+        </th>
+
+    </tr>
+    </form>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}
