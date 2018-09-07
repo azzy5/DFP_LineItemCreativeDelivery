@@ -1,3 +1,230 @@
+creative_list_dummy=[[{
+    'lineItemId': 378634861L,
+    'creativeId': 113086005421L,
+    'creativeSetId': None,
+    'manualCreativeRotationWeight': None,
+    'sequentialCreativeRotationIndex': None,
+    'startDateTime': {
+        'date': {
+            'year': 2017L,
+            'month': 3L,
+            'day': 26L
+        },
+        'hour': 16L,
+        'minute': 21L,
+        'second': 4L,
+        'timeZoneID': 'Asia/Calcutta'
+    },
+    'startDateTimeType': 'USE_START_DATE_TIME',
+    'endDateTime': None,
+    'destinationUrl': None,
+    'sizes': [],
+    'status': 'ACTIVE',
+    'stats': {
+        'stats': {
+            'impressionsDelivered': 23L,
+            'clicksDelivered': 1L,
+            'videoCompletionsDelivered': 0L,
+            'videoStartsDelivered': 0L,
+            'viewableImpressionsDelivered': 0L
+        },
+        'creativeSetStats': [],
+        'costInOrderCurrency': None
+    },
+    'lastModifiedDateTime': {
+        'date': {
+            'year': 2018L,
+            'month': 9L,
+            'day': 7L
+        },
+        'hour': 12L,
+        'minute': 14L,
+        'second': 23L,
+        'timeZoneID': 'PST8PDT'
+    },
+    'targetingName': None
+}, {
+    'lineItemId': 378634861L,
+    'creativeId': 138243699292L,
+    'creativeSetId': None,
+    'manualCreativeRotationWeight': None,
+    'sequentialCreativeRotationIndex': None,
+    'startDateTime': {
+        'date': {
+            'year': 2018L,
+            'month': 9L,
+            'day': 8L
+        },
+        'hour': 0L,
+        'minute': 44L,
+        'second': 23L,
+        'timeZoneID': 'Asia/Calcutta'
+    },
+    'startDateTimeType': 'USE_START_DATE_TIME',
+    'endDateTime': None,
+    'destinationUrl': None,
+    'sizes': [],
+    'status': 'ACTIVE',
+    'stats': None,
+    'lastModifiedDateTime': {
+        'date': {
+            'year': 2018L,
+            'month': 9L,
+            'day': 7L
+        },
+        'hour': 12L,
+        'minute': 14L,
+        'second': 23L,
+        'timeZoneID': 'PST8PDT'
+    },
+    'targetingName': None
+}, {
+    'lineItemId': 378634861L,
+    'creativeId': 138243700525L,
+    'creativeSetId': None,
+    'manualCreativeRotationWeight': None,
+    'sequentialCreativeRotationIndex': None,
+    'startDateTime': {
+        'date': {
+            'year': 2018L,
+            'month': 9L,
+            'day': 8L
+        },
+        'hour': 0L,
+        'minute': 43L,
+        'second': 12L,
+        'timeZoneID': 'Asia/Calcutta'
+    },
+    'startDateTimeType': 'USE_START_DATE_TIME',
+    'endDateTime': None,
+    'destinationUrl': None,
+    'sizes': [],
+    'status': 'ACTIVE',
+    'stats': None,
+    'lastModifiedDateTime': {
+        'date': {
+            'year': 2018L,
+            'month': 9L,
+            'day': 7L
+        },
+        'hour': 12L,
+        'minute': 14L,
+        'second': 23L,
+        'timeZoneID': 'PST8PDT'
+    },
+    'targetingName': None
+}], [{
+    'advertiserId': 104782381L,
+    'id': 113086005421L,
+    'name': 'Tes_300x50',
+    'size': {
+        'width': 300L,
+        'height': 50L,
+        'isAspectRatio': False
+    },
+    'previewUrl': 'https://partner.googleadservices.com/gampad/ads?gct=Nd0FTnANTHsKYvgMAYoYXCpVCAIQFEoAWICAgKDLoOXepQG4Aa2BzqOlA9ICCmltYWdlL2pwZWfwAqwC-AIykAMAyAOsAtADMvADAsoFFWh0dHA6Ly93d3cuZ29vZ2xlLmNvbeoGALIBAhgBGJeiy9wFKAAwl76A5AU4AFgBagZfYmxhbmtw-bnexgU&iu=82109981&gdfp_req=1&height=50&width=300&impl=ifr',
+    'policyViolations': [],
+    'appliedLabels': [],
+    'lastModifiedDateTime': {
+        'date': {
+            'year': 2018L,
+            'month': 5L,
+            'day': 15L
+        },
+        'hour': 0L,
+        'minute': 44L,
+        'second': 40L,
+        'timeZoneID': 'PST8PDT'
+    },
+    'customFieldValues': [],
+    'destinationUrl': 'http://www.google.com',
+    'destinationUrlType': 'CLICK_TO_WEB',
+    'overrideSize': False,
+    'primaryImageAsset': {
+        'assetId': 889026301L,
+        'assetByteArray': None,
+        'fileName': 'test_300x50.jpg',
+        'fileSize': 6231L,
+        'assetUrl': 'https://tpc.googlesyndication.com/pageadimg/imgad?id=CICAgKDLoOXepQEQrAIYMigBMgixfpBIht41iQ',
+        'size': {
+            'width': 300L,
+            'height': 50L,
+            'isAspectRatio': False
+        },
+        'clickTags': [],
+        'imageDensity': 'ONE_TO_ONE'
+    },
+    'altText': None,
+    'thirdPartyImpressionUrl': None,
+    'secondaryImageAssets': [],
+    'lockedOrientation': 'FREE_ORIENTATION'
+}, {
+    'advertiserId': 104782381L,
+    'id': 138243699292L,
+    'name': 'Test',
+    'size': {
+        'width': 300L,
+        'height': 50L,
+        'isAspectRatio': False
+    },
+    'previewUrl': 'https://partner.googleadservices.com/gampad/ads?gct=fmYWo_-V0i0KZPgMAYoYXipXCAkQIEoAWICAgKCbu8vgjQG4Adzk3f-CBNICCXRleHQvaHRtbPACrAL4AjKQAwCiAxMQrAIYMiiAgICgm7vL4I0B4AEAyAOsAtADMvADAsoFAPoGAigAsgECGAEYl6LL3AUoADCXvoDkBTgAWAFqBl9ibGFua3CPnMvcBQ&iu=82109981&gdfp_req=1&height=50&width=300&impl=ifr',
+    'policyViolations': [],
+    'appliedLabels': [],
+    'lastModifiedDateTime': {
+        'date': {
+            'year': 2018L,
+            'month': 9L,
+            'day': 7L
+        },
+        'hour': 12L,
+        'minute': 22L,
+        'second': 15L,
+        'timeZoneID': 'PST8PDT'
+    },
+    'customFieldValues': [],
+    'destinationUrl': None,
+    'destinationUrlType': None,
+    'htmlSnippet': '<a href ="www.google.com?%%CLICK_URL_UNESC%%">Test </a>',
+    'customCreativeAssets': [],
+    'isInterstitial': False,
+    'lockedOrientation': 'FREE_ORIENTATION',
+    'sslScanResult': 'SCANNED_SSL',
+    'sslManualOverride': 'NO_OVERRIDE',
+    'isSafeFrameCompatible': False,
+    'thirdPartyImpressionTrackingUrls': []
+}, {
+    'advertiserId': 104782381L,
+    'id': 138243700525L,
+    'name': 'Test_ThirdParty',
+    'size': {
+        'width': 300L,
+        'height': 50L,
+        'isAspectRatio': False
+    },
+    'previewUrl': 'https://partner.googleadservices.com/gampad/ads?gct=dov1pGwCCZgKcPgMAYoYaipjCAkQFkoAWICAgKCbu4uhHbgBre7d_4IE0gIJdGV4dC9odG1s8AKsAvgCMpADAaIDEhCsAhgyKICAgKCbu4uhHeABAMgDrALQAzLwAwLKBQ4vcGFnZWFkL2ltZy8uLvoGAigAsgECGAEYl6LL3AUoADCXvoDkBTgAWAFqBl9ibGFua3DIm8vcBQ&iu=82109981&gdfp_req=1&height=50&width=300&impl=ifr',
+    'policyViolations': [],
+    'appliedLabels': [],
+    'lastModifiedDateTime': {
+        'date': {
+            'year': 2018L,
+            'month': 9L,
+            'day': 7L
+        },
+        'hour': 12L,
+        'minute': 18L,
+        'second': 36L,
+        'timeZoneID': 'PST8PDT'
+    },
+    'customFieldValues': [],
+    'snippet': '<a href ="www.google.com">Test</a>',
+    'expandedSnippet': '<a href ="www.google.com">Test</a>',
+    'sslScanResult': 'SCANNED_SSL',
+    'sslManualOverride': 'NO_OVERRIDE',
+    'lockedOrientation': 'FREE_ORIENTATION',
+    'isSafeFrameCompatible': False,
+    'thirdPartyImpressionTrackingUrls': []
+}]]
+
 order_dummy ={
     'id': 407417581L,
     'name': 'Test_Mobile_Ads',
@@ -54,130 +281,7 @@ order_dummy ={
     },
     'customFieldValues': []
 }
-licadata_dummy = {
-    'totalResultSetSize': 3L,
-    'startIndex': 0L,
-    'results': [
-        {
-            'lineItemId': 114239941L,
-            'creativeId': 46835109661L,
-            'creativeSetId': None,
-            'manualCreativeRotationWeight': None,
-            'sequentialCreativeRotationIndex': None,
-            'startDateTime': None,
-            'startDateTimeType': 'USE_START_DATE_TIME',
-            'endDateTime': None,
-            'destinationUrl': None,
-            'sizes': [],
-            'status': 'INACTIVE',
-            'stats': {
-                'stats': {
-                    'impressionsDelivered': 74L,
-                    'clicksDelivered': 1L,
-                    'videoCompletionsDelivered': 0L,
-                    'videoStartsDelivered': 0L,
-                    'viewableImpressionsDelivered': 0L
-                },
-                'creativeSetStats': [],
-                'costInOrderCurrency': None
-            },
-            'lastModifiedDateTime': {
-                'date': {
-                    'year': 2018L,
-                    'month': 8L,
-                    'day': 8L
-                },
-                'hour': 11L,
-                'minute': 20L,
-                'second': 48L,
-                'timeZoneID': 'PST8PDT'
-            },
-            'targetingName': None
-        },
-        {
-            'lineItemId': 114239941L,
-            'creativeId': 113047537741L,
-            'creativeSetId': None,
-            'manualCreativeRotationWeight': None,
-            'sequentialCreativeRotationIndex': None,
-            'startDateTime': {
-                'date': {
-                    'year': 2016L,
-                    'month': 10L,
-                    'day': 25L
-                },
-                'hour': 14L,
-                'minute': 50L,
-                'second': 18L,
-                'timeZoneID': 'Asia/Calcutta'
-            },
-            'startDateTimeType': 'USE_START_DATE_TIME',
-            'endDateTime': None,
-            'destinationUrl': None,
-            'sizes': [],
-            'status': 'INACTIVE',
-            'stats': {
-                'stats': {
-                    'impressionsDelivered': 1L,
-                    'clicksDelivered': 1L,
-                    'videoCompletionsDelivered': 0L,
-                    'videoStartsDelivered': 0L,
-                    'viewableImpressionsDelivered': 0L
-                },
-                'creativeSetStats': [],
-                'costInOrderCurrency': None
-            },
-            'lastModifiedDateTime': {
-                'date': {
-                    'year': 2018L,
-                    'month': 8L,
-                    'day': 8L
-                },
-                'hour': 11L,
-                'minute': 20L,
-                'second': 48L,
-                'timeZoneID': 'PST8PDT'
-            },
-            'targetingName': None
-        },
-        {
-            'lineItemId': 114239941L,
-            'creativeId': 138240667451L,
-            'creativeSetId': None,
-            'manualCreativeRotationWeight': None,
-            'sequentialCreativeRotationIndex': None,
-            'startDateTime': None,
-            'startDateTimeType': 'USE_START_DATE_TIME',
-            'endDateTime': None,
-            'destinationUrl': None,
-            'sizes': [],
-            'status': 'ACTIVE',
-            'stats': {
-                'stats': {
-                    'impressionsDelivered': 14L,
-                    'clicksDelivered': 7L,
-                    'videoCompletionsDelivered': 0L,
-                    'videoStartsDelivered': 0L,
-                    'viewableImpressionsDelivered': 0L
-                },
-                'creativeSetStats': [],
-                'costInOrderCurrency': None
-            },
-            'lastModifiedDateTime': {
-                'date': {
-                    'year': 2018L,
-                    'month': 8L,
-                    'day': 8L
-                },
-                'hour': 11L,
-                'minute': 20L,
-                'second': 48L,
-                'timeZoneID': 'PST8PDT'
-            },
-            'targetingName': None
-        }
-    ]
-}
+
 lineitems_dummy = [{
     'orderId': 407417581L,
     'id': 378634861L,

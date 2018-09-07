@@ -62,6 +62,34 @@ def getLineItemListWithOrder(client, orderID):
         return False
 
 
+def getLICAresponse(client,lineitemID):
+    # ad_manager_client = ad_manager.AdManagerClient.LoadFromStorage()
+    lica_service = client.GetService('LineItemCreativeAssociationService', version = version)
+    lica_statement = (ad_manager.StatementBuilder()
+               .Where('lineItemId = :lineItemId')
+               .WithBindVariable('lineItemId', lineitemID))
+    lica_response = lica_service.getLineItemCreativeAssociationsByStatement(lica_statement.ToStatement())
+    creative_list = []
+    for idx,item in enumerate( lica_response['results']):
+        creative_list.insert(idx,str(item['creativeId']))
+    creativeDetialsList = getAllCreativeResponse(client, creative_list )
+    if 'results' in lica_response and len(lica_response['results']):
+        return [lica_response['results'],creativeDetialsList]
+    else :
+        print "something went wrong"
+        return False
+
+def getAllCreativeResponse(client,creativeList):
+    creative_service = client.GetService('CreativeService', version = version)
+    creative_statement = (ad_manager.StatementBuilder()
+               .Where('id = :creativeid')
+               .WithBindVariable('creativeid', creativeList))
+    creative_response = creative_service.getCreativesByStatement(creative_statement.ToStatement())
+    if 'results' in creative_response and len(creative_response['results']):
+        return creative_response['results']
+    else :
+        return False
+
 def getCreativesdetails(client, creativeID):
 
     creative_service = client.GetService('CreativeService', version = version)
@@ -75,44 +103,14 @@ def getCreativesdetails(client, creativeID):
     else :
         return False
 
-def getLICAresponse(client,lineitemID):
-    # ad_manager_client = ad_manager.AdManagerClient.LoadFromStorage()
-    lica_service = client.GetService('LineItemCreativeAssociationService', version = version)
-    lica_statement = (ad_manager.StatementBuilder()
-               .Where('lineItemId = :lineItemId')
-               .WithBindVariable('lineItemId', lineitemID))
-    lica_response = lica_service.getLineItemCreativeAssociationsByStatement(lica_statement.ToStatement())
-    if 'results' in lica_response and len(lica_response['results']):
-        return lica_response
-    else :
-        print "something went wrong"
-        return False
 
-def getAllCreativeResponse(client,creativeList):
-    creative_service = client.GetService('CreativeService', version = version)
-    creative_statement = (ad_manager.StatementBuilder()
-               .Where('id = :creativeid')
-               .WithBindVariable('creativeid', creativeList))
-    creative_response = creative_service.getCreativesByStatement(creative_statement.ToStatement())
-    #print "Creative details : " + str(creative_response)
-    if 'results' in creative_response and len(creative_response['results']):
-        return creative_response['results']
-    else :
-        return False
+
+
 
 if __name__ == '__main__':
   # Initialize client object.
-  ad_manager_client = ad_manager.AdManagerClient.LoadFromStorage()
-  data  = [getOrderDetails(ad_manager_client, '407417581'),getLineItemListWithOrder(ad_manager_client, '407417581')]
-  print "---- Order ----"
-  print data[0]
-  print "---- LineItems ----"
-  print data[1]
-
-
+  client = ad_manager.AdManagerClient.LoadFromStorage()
+  #print getAllCreativeResponse(client,[47762031781, 47762033101])
+  #print getLineItemDetails(client, '397756981')
+  print getLICAresponse(client, '378634861')
 #Steps
-
-# 1. Read Order ID from Search Bar
-# 2. Get order details and line item Details with the Lineitem and Order services (object --> data['order',['lineitems']])
-# 3. Render the page with page with order details & list of line item and details
-# 4.

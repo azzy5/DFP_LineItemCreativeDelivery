@@ -8,7 +8,7 @@
         <div class="input-group-btn">
           <button class="btn btn-default" type="submit" value="search_embed">
            <i class="glyphicon glyphicon-search"></i></button>
-           {% if form.lineItemId.errors %}
+          {% if form.lineItemId.errors %}
           <ul class=errors>
             {% for error in form.lineItemId.errors %}
             <li>{{ error }}</li>
@@ -27,13 +27,13 @@
         <div class="name-column">
           <table class="table">
             <tr>
-              <th >LineItem Name : <text class="text-justify" style="font-size: 10;color: #FFA233;"> {{ data[0]['name'] }} </text></th>
-              <th >Impressions Delivered :  <text class="text-justify" style="font-size: 10;color: #FFA233;"> {{ data[0]['stats']['impressionsDelivered'] }}</text></th>
-              <th >Clicks : <text class="text-justify" style="font-size: 10;color: #FFA233;"> {{ data[0]['stats']['clicksDelivered'] }} </text></th>
-              <th >Viewable Impressions : <text class="text-justify" style="font-size: 10;color: #FFA233;"> {{ data[0]['stats']['viewableImpressionsDelivered'] }} </text></th>
+              <th>LineItem Name : <text class="text-justify" style="font-size: 10;color: #FFA233;"> {{ data[0]['name'] }} </text></th>
+              <th>Impressions Delivered : <text class="text-justify" style="font-size: 10;color: #FFA233;"> {{ data[0]['stats']['impressionsDelivered'] }}</text></th>
+              <th>Clicks : <text class="text-justify" style="font-size: 10;color: #FFA233;"> {{ data[0]['stats']['clicksDelivered'] }} </text></th>
+              <th>Viewable Impressions : <text class="text-justify" style="font-size: 10;color: #FFA233;"> {{ data[0]['stats']['viewableImpressionsDelivered'] }} </text></th>
             </tr>
             <tr>
-              <th>Status :  <text class="text-justify" style="font-size: 10;color: #FFA233;"> {{ data[0]['status'] }} </text></th>
+              <th>Status : <text class="text-justify" style="font-size: 10;color: #FFA233;"> {{ data[0]['status'] }} </text></th>
               <td>LineItem Type : <text style="font-size: 17;color: #FFA233;"> {{ data[0]['lineItemType'] }} </text></td>
               <th>Start time : <text class="text-justify" style="font-size: 10;color: #FFA233;"> {{ data[0]['startDateTime']['date']['day'] }}-{{ data[0]['startDateTime']['date']['month'] }}-{{ data[0]['startDateTime']['date']['year'] }}  {{ data[0]['startDateTime']['hour'] }}:{{ data[0]['startDateTime']['minute'] }}:{{ data[0]['startDateTime']['second'] }} </text></th>
               <th>End Date :
@@ -41,7 +41,7 @@
                 <text class="text-justify" style="font-size: 10;color: #FFA233;"> Unlimited</text>
                 {% else %}
                 <text class="text-justify" style="font-size: 10;color: #FFA233;"> {{ data[0]['endDateTime']['date']['day'] }}-{{ data[0]['endDateTime']['date']['month'] }}-{{ data[0]['endDateTime']['date']['year'] }}  {{ data[0]['endDateTime']['hour'] }}:{{ data[0]['endDateTime']['minute'] }}:{{ data[0]['endDateTime']['second'] }} </text></th>
-                {% endif %}
+              {% endif %}
             </tr>
             <tr>
               <td>Creative Rotation Type : <text style="font-size: 17;color: #FFA233;"> {{ data[0]['creativeRotationType'] }} </text></td>
@@ -78,58 +78,68 @@
   <table class="table-striped" style="width:100%;height:100%">
     <tr>
       <th></th>
-      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Creative ID</text></th>
-      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Line Item</text></th>
-      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Status</text></th>
-      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Start time</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Creative ID </text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Creative Name</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">LineItem ID</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">status</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Preview URL</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Size</text></th>
+
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Start Time</text></th>
       <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">End time</text></th>
       <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Impressions</text></th>
       <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Clicks</text></th>
-      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;">Preview URL</text></th>
+      <th> <text class="text-justify" style="font-size: 10;color: #FFA233;"></text></th>
     </tr>
-    {% for results in data[1]['results']%}
+    {% set count = 0 %}
+    {% for results in data[1][0]%}
+    {{count }}
     <tr>
-      <form action="/generatePreviewURL" method="POST" target ="_blank"class="search-form">
-      <th > <INPUT TYPE="hidden" name="r_id" id="r_id" VALUE={{loop.index}}>{{loop.index}}</label></th>
-      <th > <input type = "hidden" name="cr_{{loop.index}}" value ={{ results['creativeId'] }}>{{ results['creativeId'] }}</th>
-      <th > <input type = "hidden" name="li_{{loop.index}}" value ={{ results['lineItemId'] }}>{{ results['lineItemId'] }}</th>
-      <th > {{ results['status'] }}</th>
-      <th >
-      {% if results['startDateTime'] == None %} None {% else %}
-      {{ results['startDateTime']['date']['day'] }}-{{ results['startDateTime']['date']['month'] }}-{{ results['startDateTime']['date']['year'] }}  {{ results['startDateTime']['hour'] }}:{{ results['startDateTime']['minute'] }}:{{ results['startDateTime']['second'] }}</th>
-      {% endif %}</th>
-      <th >
-      {% if results['endDateTime'] == None %}
-      None
-      {% else %}
-      {{ results['endDateTime']['date']['day'] }}-{{ results['endDateTime']['date']['month'] }}-{{ results['endDateTime']['date']['year'] }}  {{ results['endDateTime']['hour'] }}:{{ results['endDateTime']['minute'] }}:{{ results['endDateTime']['second'] }}</th>
-      {% endif %}</th>
-      <th > {% if results['stats'] == None %} None
-        {% else %}{{ results['stats']['stats']['impressionsDelivered'] }}
+      <form action="/generatePreviewURL" method="POST" target="_blank" class="search-form">
+        <th> <INPUT TYPE="hidden" name="r_id" id="r_id" VALUE={{loop.index}}>{{loop.index}}</label></th>
+        <th> <input type = "hidden" name="cr_{{loop.index}}" value ={{ results['creativeId'] }}>{{ results['creativeId'] }}</th>
+        <th> {{ data[1][1][loop.index0]['name'] }}</th>
+        <th> <input type = "hidden" name="li_{{loop.index}}" value ={{ results['lineItemId'] }}>{{ results['lineItemId'] }}</th>
+        <th> {{ results['status'] }}</th>
+        <th> <a href="{{ data[1][1][count]['previewUrl'] }}" target="_blank">Link</a></th>
+        <th> {{ data[1][1][loop.index0]['size']['width'] }} x {{ data[1][1][loop.index0]['size']['height'] }}</th>
+        <th>
+          {% if results['startDateTime'] == None %} None {% else %}
+          {{ results['startDateTime']['date']['day'] }}-{{ results['startDateTime']['date']['month'] }}-{{ results['startDateTime']['date']['year'] }} {{ results['startDateTime']['hour'] }}:{{ results['startDateTime']['minute'] }}:{{ results['startDateTime']['second'] }}</th>
         {% endif %}</th>
-      <th > {% if results['stats'] == None %} None
-        {% else %}{{ results['stats']['stats']['clicksDelivered'] }}
-      {% endif %}</th>
-      <th>
-        <div class="input-group">
-          <input type="text" class="form-control" name="previewURL" placeholder="URL for Preview" value= ""></input>
+        <th>
+          {% if results['endDateTime'] == None %}
+          -
+          {% else %}
+          {{ results['endDateTime']['date']['day'] }}-{{ results['endDateTime']['date']['month'] }}-{{ results['endDateTime']['date']['year'] }} {{ results['endDateTime']['hour'] }}:{{ results['endDateTime']['minute'] }}:{{ results['endDateTime']['second'] }}</th>
+        {% endif %}</th>
+        <th> {% if results['stats'] == None %} None
+          {% else %}{{ results['stats']['stats']['impressionsDelivered'] }}
+          {% endif %}</th>
+        <th> {% if results['stats'] == None %} None
+          {% else %}{{ results['stats']['stats']['clicksDelivered'] }}
+          {% endif %}</th>
+        <th>
+          <div class="input-group">
+            <input type="text" class="form-control" name="previewURL" placeholder="URL for Preview" value= ""></input>
             <div class="input-group-btn">
               <button class="btn btn-default"  type="submit" value="">
                 <i class="glyphicon glyphicon-search"></i></button>
-                  {% if form.snap.errors %}
-                  <ul class=errors>
-                  {% for error in form.snap.errors %}
-                  <li>{{ error }}</li>
-                  {% endfor %}
-                </ul>
+              {% if form.snap.errors %}
+              <ul class=errors>
+                {% for error in form.snap.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
               {% endif %}
             </div>
-         </div>
-      </th>
-      <th>
-      </th>
+          </div>
+        </th>
+        <th>
+        </th>
     </tr>
-      </form>
+    </form>
+    {% set count = count+1%}
     {% endfor %}
   </table>
 </div>

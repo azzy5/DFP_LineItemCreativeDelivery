@@ -50,28 +50,42 @@ def index():
     form = EmbedSearch(request.form)
     return render_template('index.html',form = form)
 
+
+# 1. Read Order ID from Search Bar
+# 2. Get order details and line item Details with the Lineitem and Order services (object --> data['order',['lineitems']])
+# 3. Render the page with page with order details & list of line item and details
+
 ''' /string page should do the following '''
 @app.route("/search",methods=['GET', 'POST'])
 def searchOrder():
     form = EmbedSearch(request.form)
     inputFromPage = str(request.form['lineItemId']).replace(" ","")
     orderDetials = getOrderDetails(client, inputFromPage)
-    print orderDetials
+    if  not orderDetials:
+        return render_template('somthing_wrong.html',form = form)
+    #orderDetials =order_dummy
     lineitem_list = getLineItemListWithOrder(client, inputFromPage)
+    #lineitem_list =lineitems_dummy
+
     return render_template('order_template.html',form = form, data= [orderDetials,lineitem_list])
 
+
+#1. read line item ID from Form
+#2. Get line item Details and creatives details associated with the line lineItemId
+#3. infalte the page with line item creative details also inflate the form to read
 ''' /lineitem page should do the following '''
 @app.route("/lica_",methods=['GET', 'POST'])
 def doLiCa():
     form = EmbedSearch(request.form)
     inputFromPage = request.form['li_id']
-    lineItemdata = getLineItemResponse(client, inputFromPage)
-    licadata = getLICAresponse(client, inputFromPage)
-    # lineItemdata = lineItemdata_dummy
-    # licadata = licadata_dummy
-    #print lineItemdata
+    lineItemdata = getLineItemDetails(client, inputFromPage)
+    creative_listdata = getLICAresponse(client, inputFromPage)
+    #lineItemdata = lineItemdata_dummy
+    #licadata = creative_list_dummy[0]
+    #creativeData = creative_list_dummy
+    #print creative_listdata
     if lineItemdata:
-        return render_template('lineitem_template.html',form = form, data=[lineItemdata, licadata])
+        return render_template('lineitem_template.html',form = form, data=[lineItemdata, creative_listdata])
     else:
         return render_template('somthing_wrong.html')
 
