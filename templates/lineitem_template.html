@@ -93,7 +93,6 @@
     </tr>
     {% set count = 0 %}
     {% for results in data[1][0]%}
-    {{count }}
     <tr>
       <form action="/generatePreviewURL" method="POST" target="_blank" class="search-form">
         <th> <INPUT TYPE="hidden" name="r_id" id="r_id" VALUE={{loop.index}}>{{loop.index}}</label></th>
@@ -101,7 +100,7 @@
         <th> {{ data[1][1][loop.index0]['name'] }}</th>
         <th> <input type = "hidden" name="li_{{loop.index}}" value ={{ results['lineItemId'] }}>{{ results['lineItemId'] }}</th>
         <th> {{ results['status'] }}</th>
-        <th> <a href="{{ data[1][1][count]['previewUrl'] }}" target="_blank">Link</a></th>
+        <th> <a href="{{ data[1][1][loop.index0]['previewUrl'] }}" target="_blank">Link</a></th>
         <th> {{ data[1][1][loop.index0]['size']['width'] }} x {{ data[1][1][loop.index0]['size']['height'] }}</th>
         <th>
           {% if results['startDateTime'] == None %} None {% else %}
@@ -121,25 +120,18 @@
           {% endif %}</th>
         <th>
           <div class="input-group">
-            <input type="text" class="form-control" name="previewURL" placeholder="URL for Preview" value= ""></input>
+            <input type="text" class="form-control" name="previewURL" placeholder="Preview page URL" }}></input>
             <div class="input-group-btn">
-              <button class="btn btn-default"  type="submit" value="">
-                <i class="glyphicon glyphicon-search"></i></button>
-              {% if form.snap.errors %}
-              <ul class=errors>
-                {% for error in form.snap.errors %}
-                <li>{{ error }}</li>
-                {% endfor %}
-              </ul>
-              {% endif %}
+              <button class="btn btn-default" name="preview" type="submit" value="preview">
+                <i class="glyphicon glyphicon-eye-open"></i></button>
             </div>
           </div>
         </th>
         <th>
+          <button class="btn btn-default" name="preview" type="submit" value="screenshot">
+            <i class="glyphicon glyphicon-screenshot"></i></button>
         </th>
     </tr>
-    </form>
-    {% set count = count+1%}
     {% endfor %}
   </table>
 </div>

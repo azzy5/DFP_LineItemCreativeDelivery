@@ -73,32 +73,23 @@ def getAllCreativeResponse(client,creativeList):
     else :
         return False
 
-#
-# def getCreativeResponse(client, creativeID):
-#
-#     creative_service = client.GetService('CreativeService', version = version)
-#     creative_statement = (ad_manager.StatementBuilder()
-#                .Where('id = :creativeid')
-#                .WithBindVariable('creativeid', creativeID))
-#     creative_response = creative_service.getCreativesByStatement(creative_statement.ToStatement())
-#     #print "Creative details : " + str(creative_response)
-#     if 'results' in creative_response and len(creative_response['results']):
-#         return creative_response['results'][0]
-#     else :
-#         return False
-#
-# def getLICAresponse(client,lineitemID):
-#     # ad_manager_client = ad_manager.AdManagerClient.LoadFromStorage()
-#     lica_service = client.GetService('LineItemCreativeAssociationService', version = version)
-#     lica_statement = (ad_manager.StatementBuilder()
-#                .Where('id = :lineItemId')
-#                .WithBindVariable('lineItemId', lineitemID))
-#     lica_response = lica_service.getLineItemCreativeAssociationsByStatement(lica_statement.ToStatement())
-#     if 'results' in lica_response and len(lica_response['results']):
-#         return lica_response
-#     else :
-#         print "something went wrong"
-#         return False
+def getLiCaURL(client,lineitemID, creativeID):
+    # ad_manager_client = ad_manager.AdManagerClient.LoadFromStorage()
+    lica_service = client.GetService('LineItemCreativeAssociationService', version = version)
+    lica_response = lica_service.getPreviewUrl(lineitemID,creativeID,"http://output.jsbin.com/kavobal/")
+    #print lica_response
+    return lica_response
+
+def ss_take(lica_response):
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument("--incognito")
+    chrome_options.add_argument('--ignore-certificate-errors')
+    chrome_options.add_argument("--test-type")
+    driver = webdriver.Chrome(executable_path='/Users/sahmed/Desktop/chromedriver',chrome_options=chrome_options)
+    driver.get(lica_response)
+    driver.implicitly_wait(10)
+    driver.close()
+    return None
 
 ''' returns a random number between 10000 to 9999 '''
 def get_random_key():

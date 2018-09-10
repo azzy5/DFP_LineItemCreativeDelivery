@@ -6,16 +6,16 @@ version = 'v201802'
 
 def getLICAresponse(client,lineitemID, creativeID):
     # ad_manager_client = ad_manager.AdManagerClient.LoadFromStorage()
-    lica_service = client.GetService('LineItemCreativeAssociationService', version = version)
-    lica_response = lica_service.getPreviewUrl(lineitemID,creativeID,"http://output.jsbin.com/kavobal/")
+    #lica_service = client.GetService('LineItemCreativeAssociationService', version = version)
+    #lica_response = lica_service.getPreviewUrl(lineitemID,creativeID,"http://output.jsbin.com/kavobal/")
     #print lica_response
 
 
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--incognito")
-    
+
     driver = webdriver.Chrome(executable_path='/Users/sahmed/Desktop/chromedriver',chrome_options=chrome_options)
-    driver.get(lica_response)
+    driver.get('https://www.google.com')
     driver.implicitly_wait(10)
     # options = webdriver.ChromeOptions()
     # options.add_argument('--ignore-certificate-errors')
@@ -25,7 +25,7 @@ def getLICAresponse(client,lineitemID, creativeID):
     #
     # driver.get(lica_response)
     # driver.implicitly_wait(10)
-    # driver.save_screenshot(lineitemID+"_"+creativeID+".png")
+    driver.save_screenshot("test.png")
     driver.close()
     return None
 

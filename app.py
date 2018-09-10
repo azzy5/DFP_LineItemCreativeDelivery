@@ -82,7 +82,7 @@ def doLiCa():
     creative_listdata = getLICAresponse(client, inputFromPage)
     #lineItemdata = lineItemdata_dummy
     #licadata = creative_list_dummy[0]
-    #creativeData = creative_list_dummy
+    #creative_listdata = creative_list_dummy
     #print creative_listdata
     if lineItemdata:
         return render_template('lineitem_template.html',form = form, data=[lineItemdata, creative_listdata])
@@ -97,8 +97,11 @@ def createPreview():
     lineitem_ = request.form['li_'+index]
     creative_ = request.form['cr_'+index]
     print lineitem_ + " , " + creative_ + " , " +index + " , " +previewURL
-    return render_template('preview.html')
-
+    if request.form['preview'] == 'screenshot':
+        print "btn - screenshot"
+    elif request.form['preview'] =='preview':
+        return redirect(getLiCaURL(client, lineitem_,creative_),code=302)
+    return render_template('preview.html',form = form, data=[None, None])
 
 if __name__ == '__main__':
     app.run(debug=True)
