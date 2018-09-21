@@ -76,7 +76,7 @@ def getAllCreativeResponse(client,creativeList):
 def getLiCaURL(client,lineitemID, creativeID):
     # ad_manager_client = ad_manager.AdManagerClient.LoadFromStorage()
     lica_service = client.GetService('LineItemCreativeAssociationService', version = version)
-    lica_response = lica_service.getPreviewUrl(lineitemID,creativeID,"http://output.jsbin.com/kavobal/")
+    lica_response = lica_service.getPreviewUrl(lineitemID,creativeID,"http://jsbin.com/zasocig")
     #print lica_response
     return lica_response
 
