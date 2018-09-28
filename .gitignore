@@ -2,5 +2,7 @@ lineitemservice-b18497584bf1.json
 
 *.pyc
 *.log
-
+*.png
+.vscode
 chromedriver
+sele*.py
